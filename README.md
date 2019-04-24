@@ -33,17 +33,16 @@ tr = TwitterRSS.new({
 
 # get RSS feed (GET statuses/user_timeline)
 rss = tr.user_timeline({
-  'screen_name' => 'niwasawa',
+  'screen_name' => 'YOUR_SCREEN_NAME',
   'count' => '20',
   'tweet_mode' => 'extended'
 },{
   'channel' => {
-    'title' => '@niwasawa\'s tweets',
-    'description' => '@niwasawa\'s tweets',
-    'link' => "https://twitter.com/niwasawa"
+    'title' => 'Your RSS feed title',
+    'description' => 'Your RSS feed title',
+    'link' => 'https://twitter.com/YOUR_SCREEN_NAME'
   },
 })
-
 puts rss
 ```
 
