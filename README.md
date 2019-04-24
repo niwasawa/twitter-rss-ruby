@@ -62,7 +62,7 @@ rake spec             # Run RSpec code examples
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/niwasawa/twitter_rss.
+Bug reports and pull requests are welcome on GitHub at https://github.com/niwasawa/twitter-rss-ruby.
 
 ## License
 
