@@ -1,9 +1,9 @@
-RSpec.describe TwitterRss do
-  it "has a version number" do
-    expect(TwitterRss::VERSION).not_to be nil
+RSpec.describe TwitterRSS do
+  it 'has a version number' do
+    expect(TwitterRSS::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it 'create a instance TwitterRSS' do
+    TwitterRSS.new({})
   end
 end

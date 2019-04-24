@@ -1,4 +1,6 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-# Specify your gem's dependencies in twitter_rss.gemspec
+gem 'twitter_api'
+
 gemspec
+

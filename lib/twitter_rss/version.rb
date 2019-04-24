@@ -1,3 +1,4 @@
-module TwitterRss
+class TwitterRSS
   VERSION = "0.1.0"
 end
+
