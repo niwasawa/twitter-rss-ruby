@@ -50,6 +50,8 @@ puts rss
 
 - Documentation for twitter_rss https://www.rubydoc.info/gems/twitter_rss/
 - GET statuses/user_timeline — Twitter Developers https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline
+- Tweet updates — Twitter Developers https://developer.twitter.com/en/docs/tweets/tweet-updates.html
+  - more than 140 characters, tweet_mode=extended, full_text
 
 ## Development
 
