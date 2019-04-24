@@ -1,4 +1,3 @@
-
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'twitter_rss/version'
@@ -9,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Naoki Iwasawa"]
   spec.email         = ["niwasawa@maigo.info"]
 
-  spec.summary       = 'Twitter RSS Ruby library'
-  spec.description   = 'Twitter RSS Ruby library'
+  spec.summary       = 'Twitter RSS feed Ruby library'
+  spec.description   = 'Twitter RSS feed Ruby library'
   spec.homepage      = 'https://github.com/niwasawa/twitter-rss-ruby'
   spec.license       = "MIT"
 
@@ -25,3 +24,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
 end
+
