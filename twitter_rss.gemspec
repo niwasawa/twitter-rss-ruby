@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Twitter RSS Ruby library'
   spec.description   = 'Twitter RSS Ruby library'
-  spec.homepage      = 'https://github.com/niwasawa/ruby-twitter-rss'
+  spec.homepage      = 'https://github.com/niwasawa/twitter-rss-ruby'
   spec.license       = "MIT"
 
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
