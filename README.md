@@ -46,6 +46,11 @@ rss = tr.user_timeline({
 puts rss
 ```
 
+## Documentation
+
+- Documentation for twitter_rss https://www.rubydoc.info/gems/twitter_rss/
+- GET statuses/user_timeline — Twitter Developers https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline
+
 ## Development
 
 ```
