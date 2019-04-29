@@ -2,6 +2,8 @@
 
 [![Gem Version](https://badge.fury.io/rb/twitter_rss.svg)](https://badge.fury.io/rb/twitter_rss)
 
+This library is under development and unstable.
+
 ## Installation
 
 Add this line to your application's Gemfile:
