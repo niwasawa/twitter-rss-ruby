@@ -26,6 +26,17 @@ class TwitterRSS
     make_rss(info, tweets)
   end
 
+  # Returns a RSS feed of the most recent Tweets liked by the authenticating or specified user.
+  #
+  # @param params [Hash] Parameters for Twitter API (GET favorites/list) {https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-favorites-list}
+  # @param info [Hash] RSS feed information
+  # @return [String] RSS
+  def favorites(params, info)
+    json = @t.favorites_list(params).body
+    tweets = JSON.parse(json)
+    make_rss(info, tweets)
+  end
+
   def make_rss(info, tweets)
 
     rss = RSS::Maker.make('2.0') do |maker|
