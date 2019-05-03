@@ -17,6 +17,9 @@ module TwitterAPI
     def favorites_list(params)
       DummyResponse.new('data/favorites_list.json')
     end
+    def search_tweets(params)
+      DummyResponse.new('data/search_tweets.json')
+    end
   end
 end
 
@@ -88,6 +91,33 @@ RSpec.describe TwitterRSS do
     expect(item.title).to eq '@maigolab_test: TEST: more than 140 characters. TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,ZZZ'
     expect(item.link).to eq 'https://twitter.com/maigolab_test/status/1123825480799531010'
     expect(item.description).to eq '@maigolab_test: TEST: more than 140 characters. TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,ZZZ'
+  end
+
+  it 'search' do
+    tr = TwitterRSS.new({
+      :consumer_key => 'YOUR_CONSUMER_KEY',
+      :consumer_secret => 'YOUR_CONSUMER_SECRET',
+      :token => 'YOUR_ACCESS_TOKEN',
+      :token_secret => 'YOUR_ACCESS_SECRET'
+    })
+    rss = tr.search({
+      'q' => 'SEARCH_QUERY',
+      'count' => '20',
+      'tweet_mode' => 'extended'
+    },{
+      'channel' => {
+        'title' => 'Your RSS feed title',
+        'description' => 'Your RSS feed title',
+        'link' => 'https://twitter.com/search?q=SEARCH_QUERY'
+      },
+    })
+    expect(rss).not_to be nil
+
+    rssobj = RSS::Parser.parse(rss)
+    item = rssobj.items[0]
+    expect(item.title).to eq '@niwasawa: search_test_maigolab: more than 140 characters. search test maigolab,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,ZZZZZZ'
+    expect(item.link).to eq 'https://twitter.com/niwasawa/status/1124295153470955520'
+    expect(item.description).to eq '@niwasawa: search_test_maigolab: more than 140 characters. search test maigolab,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,ZZZZZZ'
   end
 end
 

@@ -60,6 +60,20 @@ rss = tr.favorites({
   },
 })
 puts rss
+
+# get RSS feed (Standard search API)
+rss = tr.search({
+  'q' => 'SEARCH_QUERY',
+  'count' => '20',
+  'tweet_mode' => 'extended'
+},{
+  'channel' => {
+    'title' => 'Your RSS feed title',
+    'description' => 'Your RSS feed title',
+    'link' => 'https://twitter.com/search?q=SEARCH_QUERY'
+  },
+})
+puts rss
 ```
 
 ## Documentation
@@ -67,6 +81,7 @@ puts rss
 - Documentation for twitter_rss https://www.rubydoc.info/gems/twitter_rss/
 - GET statuses/user_timeline — Twitter Developers https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline
 - GET favorites/list — Twitter Developers https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-favorites-list
+- Standard search API — Twitter Developers https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets
 - Tweet updates — Twitter Developers https://developer.twitter.com/en/docs/tweets/tweet-updates.html
   - more than 140 characters, tweet_mode=extended, full_text
 
