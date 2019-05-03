@@ -37,6 +37,18 @@ class TwitterRSS
     make_rss(info, tweets)
   end
 
+  # Returns a RSS feed of a collection of relevant Tweets matching a specified query.
+  #
+  # @param params [Hash] Parameters for Twitter API (Standard search API) {https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets}
+  # @param info [Hash] RSS feed information
+  # @return [String] RSS
+  def search(params, info)
+    json = @t.search_tweets(params).body
+    searched = JSON.parse(json)
+    tweets = searched['statuses']
+    make_rss(info, tweets)
+  end
+ 
   def make_rss(info, tweets)
 
     rss = RSS::Maker.make('2.0') do |maker|
