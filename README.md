@@ -56,7 +56,7 @@ rss = tr.favorites({
   'channel' => {
     'title' => 'Your RSS feed title',
     'description' => 'Your RSS feed title',
-    'link' => 'https://twitter.com/YOUR_SCREEN_NAME'
+    'link' => 'https://twitter.com/YOUR_SCREEN_NAME/likes'
   },
 })
 puts rss
