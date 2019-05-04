@@ -1,4 +1,4 @@
-# TwitterRSS: Twitter RSS feed Ruby library
+# TwitterRSS: Twitter RSS feed Ruby gem library
 
 [![Gem Version](https://badge.fury.io/rb/twitter_rss.svg)](https://badge.fury.io/rb/twitter_rss)
 
