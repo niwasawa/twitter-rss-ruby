@@ -77,8 +77,8 @@ class TwitterRSS
         maker.items.new_item do |item|
           url = "https://twitter.com/#{f['user']['screen_name']}/status/#{f['id_str']}"
           item.link        = url
-          item.title       = "@#{f['user']['screen_name']}: #{text}"
-          item.description = "@#{f['user']['screen_name']}: #{text}"
+          item.title       = "@#{f['user']['screen_name']}: \"#{text}\" / Twitter"
+          item.description = "#{text}"
           item.pubDate     = f['created_at']
         end
       end
