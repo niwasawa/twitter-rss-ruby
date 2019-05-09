@@ -34,7 +34,7 @@ tr = TwitterRSS.new({
 })
 
 # get RSS feed (GET statuses/user_timeline)
-rss = tr.user_timeline({
+rss = tr.statuses_user_timeline({
   'screen_name' => 'YOUR_SCREEN_NAME',
   'count' => '20',
   'tweet_mode' => 'extended'
@@ -48,7 +48,7 @@ rss = tr.user_timeline({
 puts rss
 
 # get RSS feed (GET favorites/list)
-rss = tr.favorites({
+rss = tr.favorites_list({
   'screen_name' => 'YOUR_SCREEN_NAME',
   'count' => '20',
   'tweet_mode' => 'extended'
@@ -62,7 +62,7 @@ rss = tr.favorites({
 puts rss
 
 # get RSS feed (Standard search API)
-rss = tr.search({
+rss = tr.search_tweets({
   'q' => 'SEARCH_QUERY',
   'count' => '20',
   'tweet_mode' => 'extended'

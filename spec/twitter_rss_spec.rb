@@ -39,14 +39,14 @@ RSpec.describe TwitterRSS do
     expect(tr).not_to be nil
   end
 
-  it 'user_timeline' do
+  it 'statuses_user_timeline' do
     tr = TwitterRSS.new({
       :consumer_key => 'YOUR_CONSUMER_KEY',
       :consumer_secret => 'YOUR_CONSUMER_SECRET',
       :token => 'YOUR_ACCESS_TOKEN',
       :token_secret => 'YOUR_ACCESS_SECRET'
     })
-    rss = tr.user_timeline({
+    rss = tr.statuses_user_timeline({
       'screen_name' => 'YOUR_SCREEN_NAME',
       'count' => '20',
       'tweet_mode' => 'extended'
@@ -66,14 +66,14 @@ RSpec.describe TwitterRSS do
     expect(item.description).to eq 'test: more than 140 characters. test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,test,xyz'
   end
 
-  it 'favorites' do
+  it 'favorites_list' do
     tr = TwitterRSS.new({
       :consumer_key => 'YOUR_CONSUMER_KEY',
       :consumer_secret => 'YOUR_CONSUMER_SECRET',
       :token => 'YOUR_ACCESS_TOKEN',
       :token_secret => 'YOUR_ACCESS_SECRET'
     })
-    rss = tr.favorites({
+    rss = tr.favorites_list({
       'screen_name' => 'YOUR_SCREEN_NAME',
       'count' => '20',
       'tweet_mode' => 'extended'
@@ -93,14 +93,14 @@ RSpec.describe TwitterRSS do
     expect(item.description).to eq 'TEST: more than 140 characters. TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,TEST,ZZZ'
   end
 
-  it 'search' do
+  it 'search_tweets' do
     tr = TwitterRSS.new({
       :consumer_key => 'YOUR_CONSUMER_KEY',
       :consumer_secret => 'YOUR_CONSUMER_SECRET',
       :token => 'YOUR_ACCESS_TOKEN',
       :token_secret => 'YOUR_ACCESS_SECRET'
     })
-    rss = tr.search({
+    rss = tr.search_tweets({
       'q' => 'SEARCH_QUERY',
       'count' => '20',
       'tweet_mode' => 'extended'
