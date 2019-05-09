@@ -20,7 +20,7 @@ class TwitterRSS
   # @param params [Hash] Parameters for Twitter API (GET statuses/user_timeline) {https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline}
   # @param info [Hash] RSS feed information
   # @return [String] RSS
-  def user_timeline(params, info)
+  def statuses_user_timeline(params, info)
     json = @t.statuses_user_timeline(params).body
     tweets = JSON.parse(json)
     make_rss(info, tweets)
@@ -31,7 +31,7 @@ class TwitterRSS
   # @param params [Hash] Parameters for Twitter API (GET favorites/list) {https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-favorites-list}
   # @param info [Hash] RSS feed information
   # @return [String] RSS
-  def favorites(params, info)
+  def favorites_list(params, info)
     json = @t.favorites_list(params).body
     tweets = JSON.parse(json)
     make_rss(info, tweets)
@@ -42,7 +42,7 @@ class TwitterRSS
   # @param params [Hash] Parameters for Twitter API (Standard search API) {https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets}
   # @param info [Hash] RSS feed information
   # @return [String] RSS
-  def search(params, info)
+  def search_tweets(params, info)
     json = @t.search_tweets(params).body
     searched = JSON.parse(json)
     tweets = searched['statuses']
